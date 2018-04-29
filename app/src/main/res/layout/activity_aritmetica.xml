@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.widget.RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Aritmetica">
+
+    <EditText
+        android:id="@+id/etNum1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="105dp"
+        android:ems="10"
+        android:inputType="number"
+        android:textAlignment="center"/>
+
+    <EditText
+        android:id="@+id/etOperacao"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/etNum1"
+        android:layout_centerHorizontal="true"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:textAlignment="center"
+        tools:text="+"
+        android:clickable="false" />
+
+    <EditText
+        android:id="@+id/etNum2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/etOperacao"
+        android:layout_centerHorizontal="true"
+        android:ems="10"
+        android:inputType="number"
+        android:textAlignment="center"/>
+
+    <EditText
+        android:id="@+id/etResultado"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="172dp"
+        android:ems="10"
+        android:inputType="number"
+        android:textAlignment="center"/>
+
+    <Button
+        android:id="@+id/btnVerifica"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="61dp"
+        android:text="Verificar" />
+</android.widget.RelativeLayout>
