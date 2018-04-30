@@ -1,6 +1,8 @@
 package com.example.felipemoreno.matematicadivertida;
 
+import android.app.AlertDialog;
 import android.app.IntentService;
+import android.content.DialogInterface;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -70,6 +72,8 @@ public class Aritmetica extends AppCompatActivity {
     }
 
     public void verificaConta(View view){
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+
         if (contador == 5){
                 Toast.makeText(this, "Nota: " + acertos, Toast.LENGTH_SHORT).show();
                 btnVerifica.setClickable(false);
@@ -80,10 +84,22 @@ public class Aritmetica extends AppCompatActivity {
                 int digitado = Integer.parseInt(etResultado.getText().toString());
                 int resultado = fazConta(dados.get(0), dados.get(1), dados.get(2));
                 if (digitado == resultado){
-                    Toast.makeText(this, "Acertou", Toast.LENGTH_SHORT).show();
+                    builder.setMessage("Acertou").setTitle("Questão " + contador);
+                    builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int id) {
+                        }
+                    });
+                    AlertDialog dialog = builder.create();
+                    dialog.show();
                     acertos++;
                 } else {
-                    Toast.makeText(this, "Errou, a resposta certa era " + resultado, Toast.LENGTH_SHORT).show();
+                    builder.setMessage("Errou, a resposta certa era " + resultado).setTitle("Questão " + contador);
+                    builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int id) {
+                        }
+                    });
+                    AlertDialog dialog = builder.create();
+                    dialog.show();
                 }
                 contador++;
                 montaTela();
