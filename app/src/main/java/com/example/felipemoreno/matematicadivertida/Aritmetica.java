@@ -3,6 +3,7 @@ package com.example.felipemoreno.matematicadivertida;
 import android.app.AlertDialog;
 import android.app.IntentService;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -18,9 +19,8 @@ public class Aritmetica extends AppCompatActivity {
 
     EditText etNum1, etNum2, etOperacao, etResultado;
     Button btnVerifica;
-    TextView tvContador;
     ArrayList<Integer> dados;
-    int contador = 1, acertos;
+    int contador = 0, acertos;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,12 +32,11 @@ public class Aritmetica extends AppCompatActivity {
         etOperacao = findViewById(R.id.etOperacao);
         etResultado = findViewById(R.id.etResultado);
         btnVerifica = findViewById(R.id.btnVerifica);
-        tvContador = findViewById(R.id.tvContador);
 
         montaTela();
     }
 
-    public ArrayList<Integer> geraConta(){
+    public ArrayList<Integer> geraConta() {
         Random r = new Random();
         int random1 = r.nextInt(10);
         int random2 = r.nextInt(10);
@@ -49,41 +48,37 @@ public class Aritmetica extends AppCompatActivity {
         return valores;
     }
 
-    public int fazConta(int num1, int num2, int ope){
+    public int fazConta(int num1, int num2, int ope) {
         int resultado = 0;
-        if (ope == 0){
+        if (ope == 0) {
             resultado = num1 + num2;
-        } else if (ope == 1){
+        } else if (ope == 1) {
             resultado = num1 - num2;
         }
         return resultado;
     }
 
-    public void montaTela(){
+    public void montaTela() {
         dados = geraConta();
-        if (dados.get(2) == 0){
+        if (dados.get(2) == 0) {
             etOperacao.setText("+");
-        } else if (dados.get(2) == 1){
+        } else if (dados.get(2) == 1) {
             etOperacao.setText("-");
         }
         etNum1.setText(dados.get(0).toString());
         etNum2.setText(dados.get(1).toString());
-        tvContador.setText(String.valueOf(contador));
     }
 
-    public void verificaConta(View view){
+    public void verificaConta(View view) {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
-
-        if (contador == 5){
-                Toast.makeText(this, "Nota: " + acertos, Toast.LENGTH_SHORT).show();
-                btnVerifica.setClickable(false);
-        } else {
-            if (etResultado.length() == 0){
+        if (contador < 5) {
+            if (etResultado.length() == 0) {
                 Toast.makeText(this, "Digite o resultado", Toast.LENGTH_SHORT).show();
             } else {
+                contador++;
                 int digitado = Integer.parseInt(etResultado.getText().toString());
                 int resultado = fazConta(dados.get(0), dados.get(1), dados.get(2));
-                if (digitado == resultado){
+                if (digitado == resultado) {
                     builder.setMessage("Acertou").setTitle("Questão " + contador);
                     builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
                         public void onClick(DialogInterface dialog, int id) {
@@ -101,9 +96,21 @@ public class Aritmetica extends AppCompatActivity {
                     AlertDialog dialog = builder.create();
                     dialog.show();
                 }
-                contador++;
                 montaTela();
             }
+        } else {
+            btnVerifica.setText("Resultado");
+            builder.setMessage(acertos * 20 + "%").setTitle("Resultado");
+            builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                public void onClick(DialogInterface dialog, int id) {
+                    finish();
+                }
+            });
+            AlertDialog dialog = builder.create();
+            dialog.show();
+            btnVerifica.setClickable(false);
         }
+        etResultado.setText("");
     }
 }
+
