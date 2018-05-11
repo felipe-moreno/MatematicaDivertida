@@ -25,4 +25,14 @@ public class MainActivity extends AppCompatActivity {
         Intent it = new Intent(this, Aritmetica.class);
         startActivity(it);
     }
+
+    public void maiorNumero (View view){
+        Intent it = new Intent(this, MaiorNumero.class);
+        startActivity(it);
+    }
+
+    public void contagem (View view){
+        Intent it = new Intent(this, Contagem.class);
+        startActivity(it);
+    }
 }

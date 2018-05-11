@@ -22,10 +22,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
+        android:layout_below="@+id/textView"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="108dp"
-        android:text="Contagem"
-        android:layout_below="@+id/textView"/>
+        android:onClick="contagem"
+        android:text="Contagem" />
 
     <Button
         android:id="@+id/btnAritmetica"
@@ -42,6 +43,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/btnAritmetica"
         android:layout_centerHorizontal="true"
+        android:onClick="maiorNumero"
         android:text="Maior Número" />
 
 

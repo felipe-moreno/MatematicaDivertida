@@ -16,7 +16,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Aritmetica"></activity>
+        <activity android:name=".Aritmetica" />
+        <activity android:name=".MaiorNumero" />
+        <activity android:name=".Contagem"></activity>
     </application>
 
 </manifest>

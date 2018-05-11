@@ -4,70 +4,76 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Aritmetica">
+    tools:context=".MaiorNumero">
+
 
     <TextView
-        android:id="@+id/textView3"
+        android:id="@+id/textView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="22dp"
-        android:text="Aritmética Básica"
+        android:layout_marginTop="40dp"
+        android:text="Maior Número"
         android:textColor="#000"
         android:textSize="40dp" />
 
     <EditText
         android:id="@+id/etNum1"
+        android:layout_width="65dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="59dp"
+        android:layout_marginTop="134dp"
+        android:ems="10"
+        android:inputType="number"
+        android:textAlignment="center"
+        android:focusable="false"/>
+
+    <EditText
+        android:id="@+id/etNum2"
+        android:layout_width="65dp"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/etNum1"
+        android:layout_centerHorizontal="true"
+        android:ems="10"
+        android:inputType="number"
+        android:textAlignment="center"
+        android:focusable="false"/>
+
+    <EditText
+        android:id="@+id/etNum3"
+        android:layout_width="65dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignTop="@+id/etNum1"
+        android:layout_marginEnd="54dp"
+        android:ems="10"
+        android:inputType="number"
+        android:textAlignment="center"
+        android:focusable="false"/>
+
+    <EditText
+        android:id="@+id/etResposta"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="105dp"
+        android:layout_marginTop="212dp"
         android:ems="10"
         android:inputType="number"
-        android:textAlignment="center"
-        android:focusable="false"/>
-
-    <EditText
-        android:id="@+id/etOperacao"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/etNum1"
-        android:layout_centerHorizontal="true"
-        android:ems="10"
-        android:focusable="false"
-        android:inputType="textPersonName"
-        android:textAlignment="center" />
-
-    <EditText
-        android:id="@+id/etNum2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/etOperacao"
-        android:layout_centerHorizontal="true"
-        android:ems="10"
-        android:inputType="number"
-        android:textAlignment="center"
-        android:focusable="false"/>
-
-    <EditText
-        android:id="@+id/etResultado"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignStart="@+id/etNum1"
-        android:layout_below="@+id/etNum2"
-        android:ems="10"
-        android:inputType="numberSigned"
-        android:textAlignment="center" />
+        android:textAlignment="center"/>
 
     <Button
         android:id="@+id/btnVerifica"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/etResultado"
+        android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:onClick="verificaConta"
-        android:text="Verificar" />
+        android:layout_marginBottom="177dp"
+        android:onClick="verificaNumero"
+        android:text="Verificar"
+        android:textAlignment="center" />
 
 </android.widget.RelativeLayout>
