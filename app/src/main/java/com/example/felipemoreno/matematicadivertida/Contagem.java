@@ -16,9 +16,9 @@ import java.util.Random;
 public class Contagem extends AppCompatActivity {
 
     ImageView imgNumero;
-    Button btn1, btn2, btn3;
+    Button btn1, btn2, btn3, btnResultado;
     ArrayList<Integer> dados;
-    ArrayList<Integer> repetidos;
+    ArrayList<Integer> repetidos = new ArrayList<>(5);
     int contador = 0, acertos, clickado;
     Integer[] imagens = {R.drawable.img1, R.drawable.img2, R.drawable.img3, R.drawable.img4,
             R.drawable.img5, R.drawable.img6, R.drawable.img7, R.drawable.img8, R.drawable.img9,
@@ -33,7 +33,7 @@ public class Contagem extends AppCompatActivity {
         btn1 = findViewById(R.id.btn1);
         btn2 = findViewById(R.id.btn2);
         btn3 = findViewById(R.id.btn3);
-
+        btnResultado = findViewById(R.id.btnResultado);
         montaTela();
     }
 
@@ -100,6 +100,12 @@ public class Contagem extends AppCompatActivity {
                             AlertDialog dialog = builder.create();
                             dialog.show();
                             acertos++;
+                            if (contador == 5){
+                                btnResultado.setVisibility(View.VISIBLE);
+                                btn1.setVisibility(View.INVISIBLE);
+                                btn2.setVisibility(View.INVISIBLE);
+                                btn3.setVisibility(View.INVISIBLE);
+                            }
                         } else {
                             builder.setMessage("Errou, a resposta certa era " + (dados.get(0) + 1)).setTitle("Questão " + contador);
                             builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
@@ -108,6 +114,12 @@ public class Contagem extends AppCompatActivity {
                             });
                             AlertDialog dialog = builder.create();
                             dialog.show();
+                            if (contador == 5){
+                                btnResultado.setVisibility(View.VISIBLE);
+                                btn1.setVisibility(View.INVISIBLE);
+                                btn2.setVisibility(View.INVISIBLE);
+                                btn3.setVisibility(View.INVISIBLE);
+                            }
                         }
                         repetidos.add(dados.get(0));
                         clickado = 0;
@@ -123,6 +135,12 @@ public class Contagem extends AppCompatActivity {
                             AlertDialog dialog = builder.create();
                             dialog.show();
                             acertos++;
+                            if (contador == 5){
+                                btnResultado.setVisibility(View.VISIBLE);
+                                btn1.setVisibility(View.INVISIBLE);
+                                btn2.setVisibility(View.INVISIBLE);
+                                btn3.setVisibility(View.INVISIBLE);
+                            }
                         } else {
                             builder.setMessage("Errou, a resposta certa era " + (dados.get(0) + 1)).setTitle("Questão " + contador);
                             builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
@@ -131,6 +149,12 @@ public class Contagem extends AppCompatActivity {
                             });
                             AlertDialog dialog = builder.create();
                             dialog.show();
+                            if (contador == 5){
+                                btnResultado.setVisibility(View.VISIBLE);
+                                btn1.setVisibility(View.INVISIBLE);
+                                btn2.setVisibility(View.INVISIBLE);
+                                btn3.setVisibility(View.INVISIBLE);
+                            }
                         }
                         repetidos.add(dados.get(0));
                         clickado = 0;
@@ -146,6 +170,12 @@ public class Contagem extends AppCompatActivity {
                             AlertDialog dialog = builder.create();
                             dialog.show();
                             acertos++;
+                            if (contador == 5){
+                                btnResultado.setVisibility(View.VISIBLE);
+                                btn1.setVisibility(View.INVISIBLE);
+                                btn2.setVisibility(View.INVISIBLE);
+                                btn3.setVisibility(View.INVISIBLE);
+                            }
                         } else {
                             builder.setMessage("Errou, a resposta certa era " + (dados.get(0) + 1)).setTitle("Questão " + contador);
                             builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
@@ -154,9 +184,25 @@ public class Contagem extends AppCompatActivity {
                             });
                             AlertDialog dialog = builder.create();
                             dialog.show();
+                            if (contador == 5){
+                                btnResultado.setVisibility(View.VISIBLE);
+                                btn1.setVisibility(View.INVISIBLE);
+                                btn2.setVisibility(View.INVISIBLE);
+                                btn3.setVisibility(View.INVISIBLE);
+                            }
                         }
                         repetidos.add(dados.get(0));
                         clickado = 0;
+                        break;
+                    case R.id.btnResultado:
+                        builder.setMessage(acertos * 20 + "%").setTitle("Resultado");
+                        builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int id) {
+                                finish();
+                            }
+                        });
+                        AlertDialog dialog = builder.create();
+                        dialog.show();
                         break;
                 }
                 montaTela();

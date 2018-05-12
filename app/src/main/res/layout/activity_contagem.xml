@@ -59,4 +59,15 @@
         android:onClick="verificaNumero"
         android:text="Button" />
 
+    <Button
+        android:id="@+id/btnResultado"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignEnd="@+id/btn3"
+        android:layout_alignStart="@+id/btn1"
+        android:layout_alignTop="@+id/btn1"
+        android:onClick="verificaNumero"
+        android:text="Resultado"
+        android:visibility="invisible" />
+
 </android.widget.RelativeLayout>

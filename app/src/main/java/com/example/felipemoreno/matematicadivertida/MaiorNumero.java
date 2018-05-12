@@ -79,6 +79,9 @@ public class MaiorNumero extends AppCompatActivity {
                     AlertDialog dialog = builder.create();
                     dialog.show();
                     acertos++;
+                    if (contador == 5){
+                        btnVerifica.setText("Resultado");
+                    }
                 } else {
                     builder.setMessage("Errou, a resposta certa era " + resposta).setTitle("Questão " + contador);
                     builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
@@ -87,6 +90,9 @@ public class MaiorNumero extends AppCompatActivity {
                     });
                     AlertDialog dialog = builder.create();
                     dialog.show();
+                    if (contador == 5){
+                        btnVerifica.setText("Resultado");
+                    }
                 }
                 montaTela();
             }
