@@ -18,6 +18,7 @@ public class Contagem extends AppCompatActivity {
     ImageView imgNumero;
     Button btn1, btn2, btn3;
     ArrayList<Integer> dados;
+    ArrayList<Integer> repetidos;
     int contador = 0, acertos, clickado;
     Integer[] imagens = {R.drawable.img1, R.drawable.img2, R.drawable.img3, R.drawable.img4,
             R.drawable.img5, R.drawable.img6, R.drawable.img7, R.drawable.img8, R.drawable.img9,
@@ -39,6 +40,11 @@ public class Contagem extends AppCompatActivity {
     public ArrayList<Integer> geraImagem() {
         Random r = new Random();
         int randomImage = r.nextInt(10);
+        for(int i = 0; i < repetidos.size(); i++){
+            while(randomImage == repetidos.get(i)){
+                randomImage = r.nextInt(10);
+            }
+        }
         int random1 = r.nextInt(10);
         while (random1 == randomImage){
             random1 = r.nextInt(10);
@@ -85,7 +91,7 @@ public class Contagem extends AppCompatActivity {
                 switch (view.getId()){
                     case R.id.btn1:
                         clickado = Integer.parseInt(btn1.getText().toString());
-                        if (clickado == (dados.get(0))) {
+                        if (clickado == (dados.get(0))+1) {
                             builder.setMessage("Acertou").setTitle("Questão " + contador);
                             builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
                                 public void onClick(DialogInterface dialog, int id) {
@@ -103,11 +109,12 @@ public class Contagem extends AppCompatActivity {
                             AlertDialog dialog = builder.create();
                             dialog.show();
                         }
+                        repetidos.add(dados.get(0));
                         clickado = 0;
                         break;
                     case R.id.btn2:
-                        clickado = Integer.parseInt(btn1.getText().toString());
-                        if (clickado == (dados.get(0))) {
+                        clickado = Integer.parseInt(btn2.getText().toString());
+                        if (clickado == (dados.get(0)) +1) {
                             builder.setMessage("Acertou").setTitle("Questão " + contador);
                             builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
                                 public void onClick(DialogInterface dialog, int id) {
@@ -125,11 +132,12 @@ public class Contagem extends AppCompatActivity {
                             AlertDialog dialog = builder.create();
                             dialog.show();
                         }
+                        repetidos.add(dados.get(0));
                         clickado = 0;
                         break;
                     case R.id.btn3:
-                        clickado = Integer.parseInt(btn1.getText().toString());
-                        if (clickado == (dados.get(0))) {
+                        clickado = Integer.parseInt(btn3.getText().toString());
+                        if (clickado == (dados.get(0))+1) {
                             builder.setMessage("Acertou").setTitle("Questão " + contador);
                             builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
                                 public void onClick(DialogInterface dialog, int id) {
@@ -147,6 +155,7 @@ public class Contagem extends AppCompatActivity {
                             AlertDialog dialog = builder.create();
                             dialog.show();
                         }
+                        repetidos.add(dados.get(0));
                         clickado = 0;
                         break;
                 }
