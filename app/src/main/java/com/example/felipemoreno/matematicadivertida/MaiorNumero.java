@@ -67,6 +67,8 @@ public class MaiorNumero extends AppCompatActivity {
         if (contador < 5) {
             if (etResposta.length() == 0) {
                 Toast.makeText(this, "Digite a resposta", Toast.LENGTH_SHORT).show();
+            } else if (etResposta.length() > 3){
+                Toast.makeText(this, "Apenas 3 digitos são permitidos", Toast.LENGTH_SHORT).show();
             } else {
                 contador++;
                 int digitado = Integer.parseInt(etResposta.getText().toString());
@@ -81,6 +83,10 @@ public class MaiorNumero extends AppCompatActivity {
                     acertos++;
                     if (contador == 5){
                         btnVerifica.setText("Resultado");
+                        etResposta.setVisibility(View.INVISIBLE);
+                        etNum1.setVisibility(View.INVISIBLE);
+                        etNum2.setVisibility(View.INVISIBLE);
+                        etNum3.setVisibility(View.INVISIBLE);
                     }
                 } else {
                     builder.setMessage("Errou, a resposta certa era " + resposta).setTitle("Questão " + contador);
@@ -92,12 +98,15 @@ public class MaiorNumero extends AppCompatActivity {
                     dialog.show();
                     if (contador == 5){
                         btnVerifica.setText("Resultado");
+                        etResposta.setVisibility(View.INVISIBLE);
+                        etNum1.setVisibility(View.INVISIBLE);
+                        etNum2.setVisibility(View.INVISIBLE);
+                        etNum3.setVisibility(View.INVISIBLE);
                     }
                 }
                 montaTela();
             }
         } else {
-            btnVerifica.setText("Resultado");
             builder.setMessage(acertos * 20 + "%").setTitle("Resultado");
             builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
                  public void onClick(DialogInterface dialog, int id) {

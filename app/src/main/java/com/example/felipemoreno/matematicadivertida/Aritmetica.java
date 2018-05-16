@@ -89,6 +89,10 @@ public class Aritmetica extends AppCompatActivity {
                     acertos++;
                     if (contador == 5){
                         btnVerifica.setText("Resultado");
+                        etResultado.setVisibility(View.INVISIBLE);
+                        etNum1.setVisibility(View.INVISIBLE);
+                        etNum2.setVisibility(View.INVISIBLE);
+                        etOperacao.setVisibility(View.INVISIBLE);
                     }
                 } else {
                     builder.setMessage("Errou, a resposta certa era " + resultado).setTitle("Questão " + contador);
@@ -100,12 +104,15 @@ public class Aritmetica extends AppCompatActivity {
                     dialog.show();
                     if (contador == 5){
                         btnVerifica.setText("Resultado");
+                        etResultado.setVisibility(View.INVISIBLE);
+                        etNum1.setVisibility(View.INVISIBLE);
+                        etNum2.setVisibility(View.INVISIBLE);
+                        etOperacao.setVisibility(View.INVISIBLE);
                     }
                 }
                 montaTela();
             }
         } else {
-            btnVerifica.setText("Resultado");
             builder.setMessage(acertos * 20 + "%").setTitle("Resultado");
             builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
                 public void onClick(DialogInterface dialog, int id) {

@@ -105,6 +105,7 @@ public class Contagem extends AppCompatActivity {
                                 btn1.setVisibility(View.INVISIBLE);
                                 btn2.setVisibility(View.INVISIBLE);
                                 btn3.setVisibility(View.INVISIBLE);
+                                imgNumero.setVisibility(View.INVISIBLE);
                             }
                         } else {
                             builder.setMessage("Errou, a resposta certa era " + (dados.get(0) + 1)).setTitle("Questão " + contador);
@@ -119,6 +120,7 @@ public class Contagem extends AppCompatActivity {
                                 btn1.setVisibility(View.INVISIBLE);
                                 btn2.setVisibility(View.INVISIBLE);
                                 btn3.setVisibility(View.INVISIBLE);
+                                imgNumero.setVisibility(View.INVISIBLE);
                             }
                         }
                         repetidos.add(dados.get(0));
@@ -140,6 +142,7 @@ public class Contagem extends AppCompatActivity {
                                 btn1.setVisibility(View.INVISIBLE);
                                 btn2.setVisibility(View.INVISIBLE);
                                 btn3.setVisibility(View.INVISIBLE);
+                                imgNumero.setVisibility(View.INVISIBLE);
                             }
                         } else {
                             builder.setMessage("Errou, a resposta certa era " + (dados.get(0) + 1)).setTitle("Questão " + contador);
@@ -154,6 +157,7 @@ public class Contagem extends AppCompatActivity {
                                 btn1.setVisibility(View.INVISIBLE);
                                 btn2.setVisibility(View.INVISIBLE);
                                 btn3.setVisibility(View.INVISIBLE);
+                                imgNumero.setVisibility(View.INVISIBLE);
                             }
                         }
                         repetidos.add(dados.get(0));
@@ -175,6 +179,7 @@ public class Contagem extends AppCompatActivity {
                                 btn1.setVisibility(View.INVISIBLE);
                                 btn2.setVisibility(View.INVISIBLE);
                                 btn3.setVisibility(View.INVISIBLE);
+                                imgNumero.setVisibility(View.INVISIBLE);
                             }
                         } else {
                             builder.setMessage("Errou, a resposta certa era " + (dados.get(0) + 1)).setTitle("Questão " + contador);
@@ -189,20 +194,11 @@ public class Contagem extends AppCompatActivity {
                                 btn1.setVisibility(View.INVISIBLE);
                                 btn2.setVisibility(View.INVISIBLE);
                                 btn3.setVisibility(View.INVISIBLE);
+                                imgNumero.setVisibility(View.INVISIBLE);
                             }
                         }
                         repetidos.add(dados.get(0));
                         clickado = 0;
-                        break;
-                    case R.id.btnResultado:
-                        builder.setMessage(acertos * 20 + "%").setTitle("Resultado");
-                        builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
-                            public void onClick(DialogInterface dialog, int id) {
-                                finish();
-                            }
-                        });
-                        AlertDialog dialog = builder.create();
-                        dialog.show();
                         break;
                 }
                 montaTela();
